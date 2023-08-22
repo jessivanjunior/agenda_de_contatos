@@ -113,7 +113,7 @@ class Contact {
     img = map[imgColumn];
   }
 
-  Map toMap() {
+  Map<String, Object?> toMap() {
     Map<String, dynamic> map = {
       nameColumn: name,
       emailColumn: email,

@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: FlatButton(
+                      child: ElevatedButton(
                         child: Text("Ligar",
                           style: TextStyle(color: Colors.red, fontSize: 20.0),
                         ),
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: FlatButton(
+                      child: ElevatedButton(
                         child: Text("Editar",
                           style: TextStyle(color: Colors.red, fontSize: 20.0),
                         ),
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Padding(
                       padding: EdgeInsets.all(10.0),
-                      child: FlatButton(
+                      child: ElevatedButton(
                         child: Text("Excluir",
                           style: TextStyle(color: Colors.red, fontSize: 20.0),
                         ),
@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _showContactPage({Contact contact}) async {
+  void _showContactPage({Contact? contact}) async {
     final recContact = await Navigator.push(context,
         MaterialPageRoute(builder: (context) => ContactPage(contact: contact,))
     );

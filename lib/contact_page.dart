@@ -7,7 +7,7 @@ import 'package:image_picker/image_picker.dart';
 
 class ContactPage extends StatefulWidget {
 
-  final Contact contact;
+  final Contact? contact;
 
   ContactPage({this.contact});
 
@@ -25,7 +25,7 @@ class _ContactPageState extends State<ContactPage> {
 
   bool _userEdited = false;
 
-  Contact _editedContact;
+  late Contact _editedContact;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _ContactPageState extends State<ContactPage> {
     if(widget.contact == null){
       _editedContact = Contact();
     } else {
-      _editedContact = Contact.fromMap(widget.contact.toMap());
+      _editedContact = Contact.fromMap(widget.contact!.toMap());
 
       _nameController.text = _editedContact.name;
       _emailController.text = _editedContact.email;
@@ -76,7 +76,7 @@ class _ContactPageState extends State<ContactPage> {
                     image: DecorationImage(
                         image: _editedContact.img != null ?
                         FileImage(File(_editedContact.img)) :
-                        AssetImage("images/person.png"),
+                        AssetImage("lib/images/person.jpg"),
                         fit: BoxFit.cover
                     ),
                   ),
@@ -134,13 +134,13 @@ class _ContactPageState extends State<ContactPage> {
               title: Text("Descartar Alterações?"),
               content: Text("Se sair as alterações serão perdidas."),
               actions: <Widget>[
-                FlatButton(
+                ElevatedButton(
                   child: Text("Cancelar"),
                   onPressed: (){
                     Navigator.pop(context);
                   },
                 ),
-                FlatButton(
+                ElevatedButton(
                   child: Text("Sim"),
                   onPressed: (){
                     Navigator.pop(context);
